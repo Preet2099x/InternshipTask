@@ -51,7 +51,7 @@ const PricingTable = () => {
           {plans.map(plan => (
             <div 
               key={plan.id} 
-              className={`rounded-lg shadow-md overflow-hidden border ${
+              className={`rounded-lg shadow-md overflow-hidden border flex flex-col h-full ${
                 plan.isPopular ? 'border-2 border-blue-500 relative' : 'border border-gray-300'
               }`}
             >
@@ -60,13 +60,13 @@ const PricingTable = () => {
                   Most Popular
                 </div>
               )}
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                 <div className="text-3xl font-bold mb-6">
                   ${plan.price}
                   <span className="text-base font-normal text-gray-600">/month</span>
                 </div>
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 mb-8 flex-grow">
                   {plan.features.map((feature, index) => (
                     <li key={index} className="flex items-center">
                       <svg 
@@ -88,7 +88,7 @@ const PricingTable = () => {
                   ))}
                 </ul>
                 <button 
-                  className={`w-full py-2 px-4 rounded-lg font-bold transition duration-300 ${
+                  className={`w-full py-2 px-4 rounded-lg font-bold transition duration-300 mt-auto ${
                     plan.isPopular 
                       ? 'bg-blue-600 hover:bg-blue-700 text-white' 
                       : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
